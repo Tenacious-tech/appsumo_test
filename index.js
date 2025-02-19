@@ -34,8 +34,9 @@ app.get('/oauth', async (req, res) => {
     const licenseResponse = await axios.get(`https://appsumo.com/openid/license_key/?access_token=${access_token}`);
 
     const licenseData = licenseResponse.data;
-    res.json({
+    res.status(200).json({
       success : true,
+      status : OK,
       access_token: access_token,
       refresh_token : refresh_token,
       licenseData: licenseResponse.key,
